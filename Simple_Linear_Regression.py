@@ -1,90 +1,66 @@
-dataset=[
-[2,4,8.5,196],
-[2.4,4,9.6,221],
-[1.5,4,5.9,136],
-[3.5,6,11.1,255],
-[3.5,6,10.6,244],
-[3.5,6,10,230],
-[3.5,6,10.1,232],
-[3.7,6,11.1,255],
-[3.7,6,11.6,267],
-    ]
+import matplotlib.pyplot as plt
+from numpy.polynomial.polynomial import polyfit
+
+Area = [1,2,4,3,5]
+Price = [1,3,3,2,5]
+
+plt.scatter(Area, Price, color='blue')
+plt.xlabel('Area')
+plt.ylabel('Price')
+
+input_size = len(Area)
+x = Area
+y = Price
+
+def avg(avg_input):
+    my_temp = 0
+    for i in range (0, input_size):
+        my_temp = my_temp + avg_input[i]
+    return(my_temp/input_size)
+
+avg_x = avg(x)
+avg_y = avg(y)
+
+print("Average of x: ", avg_x)
+print("Average of y: ", avg_y)
+
+def beta1():
+    beta1_numerator = 0
+    beta1_denumerator = 0
+    for i in range (0, input_size):
+        beta1_numerator = beta1_numerator + ((x[i] - avg_x)*(y[i] - avg_y))
+        beta1_denumerator = beta1_denumerator + ((x[i] - avg_x)**2)    
+    return(beta1_numerator/beta1_denumerator)
+
+print("Beta1 = ", beta1())
+
+beta0 = avg_y - (beta1() * avg_x)
+
+print("Beta0 = ", avg_y , "-" , "(" , beta1() , "*" , avg_x , ") =" , beta0)
+
+def capital_y(user_input):
+    return(beta0 + (beta1() * user_input))
 
 
-len_dataset = len(dataset)
-independent_variables = []
-dependent_variables = []
-
-
-### selecting first values of each row as "y" or dependent values
-for x in range(0, len_dataset):
-    independent_variables.append(dataset[x][0])
+user_input = [1,2,4,3,5]
+predicted_y = []
+for i in range(0, len(user_input)):
+    predicted_y.append(capital_y(user_input[i]))
     
-sum_independent_variables = 0
+print("Predicted values are: ", predicted_y)
 
-### calculating sum of "y" or dependent values
-for x in independent_variables:
-    sum_independent_variables = x + sum_independent_variables
+plt.scatter(Area, Price, color='blue')
+plt.scatter(Area, predicted_y, color='red')
+plt.xlabel('Area')
+plt.ylabel('Price')
+plt.plot(Area, predicted_y, color='orange')
 
-    
-### selecting first values of each row as "x" or independent values
-for x in range(0, len_dataset):
-    dependent_variables.append(dataset[x][3])
+def my_RMSE(y,predicted_y):
+    my_temp = 0
+    for i in range(0, input_size):
+        my_temp = my_temp + ((y[i] - predicted_y[i])**2)
+    my_temp = my_temp /  input_size
+    my_temp = my_temp **(1/2)
+    return(my_temp)
 
-sum_dependent_variables = 0
-
-### calculating sum of "x" or independent values
-for x in dependent_variables:
-    sum_dependent_variables = x + sum_dependent_variables
-
-    
-    
-### calculating average of "x" or independent values
-average_independent_variables = sum_independent_variables / len_dataset
-aiv = average_independent_variables
-
-### calculating average of "y" or dependent values
-average_dependent_variables = sum_dependent_variables / len_dataset
-adv = average_dependent_variables
-
-
-### calculating theta1
-theta_1 = 0
-theta1_numerator = 0
-theta1_denumerator = 0
-for x in range(0, len(dependent_variables)):
-    theta1_numerator = ((independent_variables[x]-aiv)*(dependent_variables[x]-adv)) + theta1_numerator
-    theta1_denumerator = ((independent_variables[x]-aiv)**2) + theta1_denumerator
-
-theta_1 = theta1_numerator / theta1_denumerator
-
-### calculating theta0
-theta_0 = adv - (theta_1*aiv)
-
-
-
-print("Calculation Summary")
-print("Sum of X (Independent Variables)=",sum_independent_variables)
-print("Sum of Y (Dependent Variables)=",sum_dependent_variables)
-print("Mean X (Average of Dependent Variables)=",aiv)
-print("Mean Y (Average of Independent Variables)=",adv)
-print("Sum of squares (SSX)(θ1 Denumerator)=",theta1_denumerator)
-print("Sum of products (SP))(θ1 Numerator)=",theta1_numerator)
-print(" ")
-print("Regression Equation = ŷ = bX + a")
-print("ŷ = θ0 + θ1X1")
-print(" ")
-print("b(θ1) = SP/SSX =",theta1_numerator,"/",theta1_denumerator,"=",theta_1)
-print(" ")
-print("a(θ0) = MY-bMX =",adv,"- (",theta_1,"*",aiv,")=",theta_0)
-print("θ0 = ȳ - θ1x̄")
-print(" ")
-print("ŷ =",theta_1,"X+",theta_0)
-
-
-### setting "x" in ŷ = θ0 + θ1X1
-target_independent_value = 2.4
-
-### predicting the y for selected row
-final_prediction = theta_0 + (theta_1 * target_independent_value)
-print("final_prediction",final_prediction)
+print("RMSE = ", my_RMSE(y,predicted_y))
