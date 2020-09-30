@@ -1,2 +1,1 @@
-# Simple Linear Regression
-A simpe linear regression example by Python.
+Machine learning educational contents.
