@@ -1,4 +1,4 @@
-### --- #shape (1) codes | کدهای مربوط به شکل (1) در قسمت هشتم  --- start
+### --- shape (1) codes | کدهای مربوط به شکل (1) در قسمت هشتم  --- start
 
 import matplotlib.pyplot as plt
 from numpy.polynomial.polynomial import polyfit
@@ -14,7 +14,7 @@ input_size = len(Area)
 x = Area
 y = Price
 
-### --- #shape (1) codes | کدهای مربوط به شکل (1) در قسمت هشتم  --- end
+### --- shape (1) codes | کدهای مربوط به شکل (1) در قسمت هشتم  --- end
 
 
 ### --- بخش مربوط به محاسبه میانگین --- start
