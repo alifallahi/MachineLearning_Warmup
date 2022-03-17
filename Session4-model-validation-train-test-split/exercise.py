@@ -20,8 +20,8 @@ mytest_model.predict(X)
 
 y
 
-orginal_prices = mytest_model.predict(X).tolist()
-predicted_home_prices = y.tolist()
+predicted_home_prices = mytest_model.predict(X).tolist()
+orginal_prices = y.tolist()
 
 new_orginal_prices = []
 
