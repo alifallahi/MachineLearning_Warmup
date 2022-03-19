@@ -4,9 +4,17 @@ from numpy.polynomial.polynomial import polyfit
 Area = [1,2,4,3,5]
 Price = [1,3,3,2,5]
 
+### --- shape (1) codes | کدهای مربوط به شکل (1) در قسمت سوم  --- start
+
 plt.scatter(Area, Price, color='blue')
 plt.xlabel('Area')
 plt.ylabel('Price')
+
+### --- shape (1) codes | کدهای مربوط به شکل (1) در قسمت سوم  --- end
+
+
+### --- بخش مربوط به پیاده سازی رگرسیون خطی ساده با استفاده از پایتون --- start
+### --- Implementing the simple linear regression by pure Python --- start
 
 input_size = len(Area)
 x = Area
@@ -49,11 +57,12 @@ for i in range(0, len(user_input)):
     
 print("Predicted values are: ", predicted_y)
 
-plt.scatter(Area, Price, color='blue')
-plt.scatter(Area, predicted_y, color='red')
-plt.xlabel('Area')
-plt.ylabel('Price')
-plt.plot(Area, predicted_y, color='orange')
+### --- Implementing the simple linear regression by pure Python --- end
+### --- بخش مربوط به پیاده سازی رگرسیون خطی ساده با استفاده از پایتون --- end
+
+
+### --- بخش مربوط به محاسبه خطای جذر میانگین مربعات RMSE --- start
+### --- Root mean square erro (RMSE) calculation section --- start
 
 def my_RMSE(y,predicted_y):
     my_temp = 0
@@ -64,3 +73,17 @@ def my_RMSE(y,predicted_y):
     return(my_temp)
 
 print("RMSE = ", my_RMSE(y,predicted_y))
+
+### --- Root mean square erro (RMSE) calculation section --- end
+### --- بخش مربوط به محاسبه خطای جذر میانگین مربعات RMSE --- end
+
+
+### --- shape (2) codes | کدهای مربوط به شکل (2) در قسمت سوم  --- start
+
+plt.scatter(Area, Price, color='blue')
+plt.scatter(Area, predicted_y, color='red')
+plt.xlabel('Area')
+plt.ylabel('Price')
+plt.plot(Area, predicted_y, color='orange')
+
+### --- shape (2) codes | کدهای مربوط به شکل (2) در قسمت سوم  --- end
