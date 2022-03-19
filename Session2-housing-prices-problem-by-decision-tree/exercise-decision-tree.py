@@ -1,3 +1,6 @@
+### --- پیاده سازی الگوریتم درخت تصمیم --- start
+### --- Running the decision tree --- start
+
 import pandas as pd
 from sklearn.tree import DecisionTreeRegressor
 
@@ -15,3 +18,6 @@ mytest_model.fit(X, y)
 
 print("First in-sample predictions:", mytest_model.predict(X.head()))
 print("Actual target values for those homes:", y.head().tolist())
+
+### --- Running the decision tree --- end
+### --- پیاده سازی الگوریتم درخت تصمیم --- end
