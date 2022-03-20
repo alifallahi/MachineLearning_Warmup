@@ -74,13 +74,16 @@ def paramcalc(x1,x2,y,input_x1,input_x2):
      teta1 = det(teta1_numerator)/det(orginal_m)
      teta2 = det(teta2_numerator)/det(orginal_m)
 
-     print("\nteta0 = " , teta0)
-     print("teta1 = " , teta1)
-     print("teta2 = " , teta2)
-
+     print("\nθ₀ = " , teta0)
+     print("θ₁ = " , teta1)
+     print("θ₂ = " , teta2)
+     print("y = θ₀ + θ₁X₁ + θ₂X₂")
+     temp_print = teta0 + (teta1*input_x1) + (teta2*input_x2)
+     print("y = ",teta0,"+(",teta1,"*",input_x1,")+(",teta2,"*",input_x2,")=",temp_print)
+ 
      predicted_value = teta0 + (teta1 * input_x1) +  (teta2 * input_x2) 
      print("predicted value for x1=",input_x1, "and x2=",input_x2,"=", predicted_value)
-
+ 
 
 def det(m):
      det_result = (m[0][0] * ((m[1][1] * m[2][2]) - (m[1][2] * m[2][1]))) -(m[0][1] * ((m[1][0] * m[2][2]) - (m[1][2] * m[2][0]))) +(m[0][2] * ((m[1][0] * m[2][1]) - (m[1][1] * m[2][0])))
