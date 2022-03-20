@@ -39,21 +39,21 @@ print("Average of y: ", avg_y)
 ### --- بخش مربوط به محاسبه میانگین --- end
 
 
-### --- بخش مربوط به محاسبه تتا1 و تتا2 در رگرسیون خطی ساده --- start
-### --- Calculating theta 1 and theta 2 in simple linear regression --- start
+### --- Calculating θ₀ and θ₁ in simple linear regression --- start
+### --- بخش مربوط به محاسبه تتا0 و تتا1 در رگرسیون خطی ساده --- start
 
-def beta1():
-     beta1_numerator = 0
-     beta1_denumerator = 0
+def teta1():
+     teta1_numerator = 0
+     teta1_denumerator = 0
      for i in range (0, input_size):
-          beta1_numerator = beta1_numerator + ((x[i] - avg_x)*(y[i] - avg_y))
-          beta1_denumerator = beta1_denumerator + ((x[i] - avg_x)**2)
-     return(beta1_numerator/beta1_denumerator)
+          teta1_numerator = teta1_numerator + ((x[i] - avg_x)*(y[i] - avg_y))
+          teta1_denumerator = teta1_denumerator + ((x[i] - avg_x)**2)
+     return(teta1_numerator/teta1_denumerator)
+ 
+print("θ₁ = ", teta1())
+ 
+teta0 = avg_y - (teta1() * avg_x)
+print("θ₀ = ", avg_y , "-" , "(" , teta1() , "*" , avg_x , ") =" , teta0)
 
-print("Beta1 = ", beta1())
-
-beta0 = avg_y - (beta1() * avg_x)
-print("Beta0 = ", avg_y , "-" , "(" , beta1() , "*" , avg_x , ") =" , beta0)
-
-### --- Calculating theta 1 and theta 2 in simple linear regression --- end
-### --- بخش مربوط به محاسبه تتا1 و تتا2 در رگرسیون خطی ساده --- end
+### --- Calculating θ₀ and θ₁ in simple linear regression --- end
+### --- بخش مربوط به محاسبه تتا0 و تتا1 در رگرسیون خطی ساده --- end
