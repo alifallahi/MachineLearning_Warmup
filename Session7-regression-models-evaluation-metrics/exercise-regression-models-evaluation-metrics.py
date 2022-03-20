@@ -1,3 +1,6 @@
+### --- پیاده سازی رگرسیون خطی ساده با sklearn --- start
+### --- Implementing the simple linear regression by scikit --- start
+
 import pandas as pd
 
 file_path = 'dataset.csv'
@@ -23,9 +26,11 @@ print("Orginal values: \n",val_y)
 
 print("\nPredicted values:", val_predictions)
 
+### --- پیاده سازی رگرسیون خطی ساده با sklearn --- end
+### --- Implementing the simple linear regression by scikit --- end
+
 
 ### https://scikit-learn.org/stable/modules/model_evaluation.html
-
 
 ### --- MSE and RMSE --- start
 from sklearn.metrics import mean_squared_error
