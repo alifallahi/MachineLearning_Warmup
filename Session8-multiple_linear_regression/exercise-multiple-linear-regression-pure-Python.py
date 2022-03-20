@@ -51,7 +51,7 @@ def paramcalc(x1,x2,y,input_x1,input_x2):
 
 
 ### --- بخش مربوط به محاسبه تتا0، تتا1 و تتا2 در رگرسیون خطی چندگانه--- start
-### --- Calculating theta 0, theta 1 and theta 2 in multiple linear regression --- start
+### --- Calculating θ₀, θ₁ and θ₂ in multiple linear regression --- start
 
      orginal_m = [[input_size,sum_x1,sum_x2],
                           [sum_x1,sum_x1power2,sum_x1x2],
@@ -99,6 +99,6 @@ input_x2 = 0
 
 paramcalc(x1,x2,y,input_x1,input_x2)
 
-### --- Calculating theta 0, theta 1 and theta 2 in multiple linear regression --- end
+### --- Calculating θ₀, θ₁ and θ₂ in multiple linear regression --- end
 ### --- بخش مربوط به محاسبه تتا0، تتا1 و تتا2 در رگرسیون خطی چندگانه--- end
 
